@@ -14,7 +14,7 @@ import { TbBorderStyle } from "react-icons/tb";
 
 const App = () => {
   return (
-    <div className=" gap-10   border border-black max-w-full pb-20  ">
+    <div className=" gap-10   border border-black max-w-full  min-h-screen  ">
       <BrowserRouter>
         {/*top  Logo  navbar and cart navbar */}
 
@@ -27,6 +27,7 @@ const App = () => {
             <FaShoppingCart />
           </Link>
         </div>
+
         {/* bottom navbar spa for single page aplication */}
         <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between border border-black gap-5  p-2 items-center  bg-white">
           <Link to="/" className="flex flex-col items-center">
