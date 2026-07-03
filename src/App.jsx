@@ -14,11 +14,11 @@ import { TbBorderStyle } from "react-icons/tb";
 
 const App = () => {
   return (
-    <div className=" gap-10   border border-black max-w-full  min-h-screen  ">
+    <div className=" gap-10  max-w-full  min-h-screen  ">
       <BrowserRouter>
         {/*top  Logo  navbar and cart navbar */}
 
-        <div className="flex justify-between items-center  border border-black  font-black text-2xl  p-2 px-1 bg-white">
+        <div className="fixed top-0 left-0 right-0 z-50  flex justify-between items-center  border border-black  font-black text-2xl  p-2 px-1 bg-white">
           <Link to="/">
             <FiAlignLeft />
           </Link>
@@ -29,7 +29,7 @@ const App = () => {
         </div>
 
         {/* bottom navbar spa for single page aplication */}
-        <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between border border-black gap-5  p-2 items-center  bg-white">
+        <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between  shad gap-5  p-2 items-center  bg-white">
           <Link to="/" className="flex flex-col items-center">
             <IoHomeOutline size={30} />
             <span className="text-xs font-medium">Home</span>
