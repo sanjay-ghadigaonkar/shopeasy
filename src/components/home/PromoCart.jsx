@@ -1,20 +1,20 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
-const PromoCart = () => {
+const PromoCart = ({ brand, image, BackGroundColor }) => {
   return (
     // 1. h-[120px] se exact h-30 (120px) size lock ho jayega.
     // 2. Padding ko p-3 kiya hai taaki andar space bache.
-    <div className="relative w-full h-[120px] rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-md flex items-center justify-between p-3 overflow-hidden mx-5">
+    <div
+      className={`relative w-full h-[120px] rounded-2xl  text-white shadow-md flex items-center justify-between p-3 overflow-hidden mx-5 
+       ${BackGroundColor}`}
+    >
       {/* h-full dene se yeh parent ki height (120px) ke andar hi perfectly stretch hoga */}
       <div className="z-10 flex flex-col justify-between h-full py-0.5">
         <div>
-          <span className="inline-block bg-blue-600 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-md mb-0.5">
-            Limited
-          </span>
           {/* leading-tight se text ki line height kam hogi aur space bachega */}
           <h3 className="text-base font-bold tracking-tight leading-tight">
-            Air Max Edition
+            {brand}
           </h3>
           <p className="text-[10px] text-slate-400">Get 30% off on comfort.</p>
         </div>
@@ -27,11 +27,12 @@ const PromoCart = () => {
       </div>
 
       {/* Right side price automatically adjusted */}
-      <div className="text-right z-10 self-end pb-0.5">
-        <span className="block text-[9px] text-slate-500 line-through">
-          ₹7,999
-        </span>
-        <span className="text-sm font-bold text-blue-400">₹5,599</span>
+      <div className="absolute right-0 top-0 bottom-0 w-[40%] flex items-center justify-end pr-3">
+        <img
+          src={image}
+          alt="img"
+          className="h-24 w-24 object-cover rounded-full shadow-sm border-2 border-white/50"
+        />
       </div>
     </div>
   );

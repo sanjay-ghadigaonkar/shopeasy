@@ -5,6 +5,8 @@ import ShortCategory from "../../components/Common/ShortCategory";
 import TrendingProducts from "../../components/Common/TrendingProducts";
 
 const Home = () => {
+  const bgColors = ["bg-orange-200"];
+
   return (
     <div className=" w-full max-h-screen ">
       {/* hompage strucher */}
@@ -15,7 +17,11 @@ const Home = () => {
       {/* promotion poster */}
 
       <div className="   h-30 my-5 flex items-center justify-center">
-        <PromoCart />
+        <PromoCart
+          brand="Super Sale"
+          image="https://images.pexels.com/photos/3394662/pexels-photo-3394662.jpeg?auto=compress&cs=tinysrgb&w=400"
+          BackGroundColor="bg-indigo-200"
+        />
       </div>
       <div className="w-full h-30 my-5  ">
         <ShortCategory />
