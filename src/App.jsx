@@ -1,7 +1,13 @@
 import { useContext } from "react";
-import {CartContext} from "./Context/CartContext";
+import { CartContext } from "./Context/CartContext";
 import React from "react";
-import { BrowserRouter, Route, Routes, Link,useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { FiAlignLeft } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
@@ -15,40 +21,45 @@ import { CgProfile } from "react-icons/cg";
 import { TbBorderStyle } from "react-icons/tb";
 
 const App = () => {
-
-
   // 👉 YAHAN TUMHE APNA NAYA FUNCTION (COMPONENT) LIKHNA HAI
-const AppContent = () => {
-  const location = useLocation();
-  const { alertMessage } = useContext(CartContext);
-  
-  console.log("Current Alert Message in App:", alertMessage);
-  return (
-  <>
-        {/*top  Logo  navbar and cart navbar */}
+  const AppContent = () => {
+    const location = useLocation();
+    const { alertMessage } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
 
+    console.log("Current Alert Message in App:", alertMessage);
+    return (
+      <>
+        {/*top  Logo  navbar and cart navbar */}
 
         {alertMessage && (
           <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-950 text-white px-4 py-2.5 rounded-xl shadow-lg font-medium text-xs z-50 text-center whitespace-nowrap min-w-[200px]">
             {alertMessage}
           </div>
         )}
-        
 
-        {location.pathname !== "/orders" && location.pathname !== "/profile" && location.pathname !== "/cart" && (
-        
-        <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center shadow-md font-black text-2xl p-2 px-1 bg-white">
-          <Link to="/">
-            <FiAlignLeft />
-          </Link>
-          <Link to="/">ShopEasy</Link>
-          <Link to="/cart">
-            <FaShoppingCart />
-          </Link>
-        </div>
-        
-      )}
-       
+        {location.pathname !== "/orders" &&
+          location.pathname !== "/profile" &&
+          location.pathname !== "/cart" && (
+            <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center shadow-md font-black text-2xl p-2 px-1 bg-white">
+              <Link to="/">
+                <FiAlignLeft />
+              </Link>
+              <Link to="/">ShopEasy</Link>
+              <Link to="/cart" className="relative p-1">
+                <FaShoppingCart />
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
+                    {cartItems.reduce(
+                      (total, item) => total + item.quantity,
+                      0,
+                    )}
+                  </span>
+                )}
+              </Link>
+            </div>
+          )}
+
         {/* bottom navbar spa for single page aplication */}
         <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between  shad gap-5  p-2 items-center  bg-white shadow-md">
           <Link to="/" className="flex flex-col items-center">
@@ -82,14 +93,14 @@ const AppContent = () => {
             <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </div>
-  </>
-  )
-};
+      </>
+    );
+  };
 
   return (
     <div className=" gap-10  max-w-full  min-h-screen  ">
       <BrowserRouter>
-      <AppContent/>
+        <AppContent />
       </BrowserRouter>
     </div>
   );
