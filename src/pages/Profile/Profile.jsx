@@ -36,7 +36,7 @@ const Profile = () => {
         {/* Name & Subtext */}
         <h2 className="text-xl font-bold text-slate-900">Sanjay</h2>
         <p className="text-sm text-slate-500 font-medium mt-0.5">sanjay@example.com</p>
-        <p className="text-xs text-slate-400 mt-1">+91 98765 43210</p>
+        <p className="text-xs text-slate-400 mt-1">+91 XXXXXXXXXX</p>
       </div>
 
       {/* 3. Menu List Options */}

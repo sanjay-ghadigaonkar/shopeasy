@@ -66,7 +66,7 @@ const TrendingProducts = () => {
               {/* Price & Action Mini Row */}
               <div className="flex items-center justify-between mt-auto">
                 <span className="text-[10px] sm:text-xs font-black text-slate-900 line-clamp-1">
-                  {product.price}
+                  ₹{product.price.toLocaleString()}
                 </span>
                 <button onClick={()=>{
                   addToCart(product);
