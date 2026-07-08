@@ -1,6 +1,6 @@
 import React from "react";
 import PromoCart from "../../components/home/PromoCart";
-import SearchBar from "../../components/Common/Searchbar";
+import SearchBar from "../../components/Common/SearchBar";
 import ShortCategory from "../../components/Common/ShortCategory";
 import TrendingProducts from "../../components/Common/TrendingProducts";
 
