@@ -1,38 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import {CartContext} from "../../Context/CartContext";
 import React from "react";
 import { FiShoppingCart, FiHeart, FiStar } from "react-icons/fi";
+import { trendingSection } from "../../data/product";
+
 
 const TrendingProducts = () => {
+  const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
   // 1. Clean Electronics Dummy Data
-  const products = [
-    {
-      id: 1,
-      name: "iPhone 15 Pro Max",
-      price: "₹1,39,900",
-      rating: "4.9",
-      image: "https://unsplash.com",
-    },
-    {
-      id: 2,
-      name: "MacBook Air M3",
-      price: "₹1,14,900",
-      rating: "4.8",
-      image: "https://unsplash.com",
-    },
-    {
-      id: 3,
-      name: "Samsung Galaxy S24 Ultra",
-      price: "₹1,24,999",
-      rating: "4.7",
-      image: "https://unsplash.com",
-    },
-    {
-      id: 4,
-      name: "Sony Bravia 4K TV",
-      price: "₹54,999",
-      rating: "4.6",
-      image: "https://unsplash.com",
-    },
-  ];
+  
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden ">
@@ -53,7 +32,7 @@ const TrendingProducts = () => {
         - md:grid md:grid-cols-4: Badi screen par ye automatic split hokar fix ho jayega.
       */}
       <div className="flex overflow-x-auto gap-3 pb-2 scrollbar-none w-full snap-x snap-mandatory md:grid md:grid-cols-4 md:gap-4 border border-slate-200 rounded-xl p-2">
-        {products.map((product) => (
+        {trendingSection.map((product) => (
           <div
             key={product.id}
             className="snap-center shrink-0 w-[140px] md:w-full bg-white border border-slate-100 rounded-xl overflow-hidden shadow-xs flex flex-col justify-between h-[155px] md:h-auto group "
@@ -78,7 +57,7 @@ const TrendingProducts = () => {
                   <FiStar className="fill-amber-500 w-2.5 h-2.5" />
                   <span>{product.rating}</span>
                 </div>
-                {/* 1 Line Text Lock for Product Name */}
+                {/* 1 Line Text Lock for trendingSection Name */}
                 <h3 className="font-bold text-slate-700 text-[10px] sm:text-xs line-clamp-1">
                   {product.name}
                 </h3>
@@ -89,7 +68,12 @@ const TrendingProducts = () => {
                 <span className="text-[10px] sm:text-xs font-black text-slate-900 line-clamp-1">
                   {product.price}
                 </span>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white p-1 rounded-md transition active:scale-95 shadow-xs shrink-0">
+                <button onClick={()=>{
+                  addToCart(product);
+                  // navigate("/cart");
+                }}
+                
+                className="bg-blue-600 hover:bg-blue-700 text-white p-1 rounded-md transition active:scale-95 shadow-xs shrink-0">
                   <FiShoppingCart className="w-2.5 h-2.5" />
                 </button>
               </div>

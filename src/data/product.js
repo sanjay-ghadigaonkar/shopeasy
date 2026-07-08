@@ -1,79 +1,97 @@
 // src/data/products.js
 
-export const productsData = [
+const ProductsData = [
   {
-    id: "p1",
-    name: "Wireless Headphones",
-    brand: "Generic",
-    price: 59.99,
-    originalPrice: 129.99,
-    category: "Electronics",
-    rating: 4.5,
-    reviews: 120,
-    inStock: true,
+    id: 1,
+    brand: "Apple",
+    // Fix: Working Pexels Image (iPhone)
     image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
-    features: [
-      "Bluetooth 5.0",
-      "20 Hours Battery",
-      "Noise Cancellation",
-      "1 Year Warranty",
-    ],
+      "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
-    id: "p2",
-    name: "Boat Rockerz 450",
-    brand: "Boat",
-    price: 39.99,
-    originalPrice: 89.99,
-    category: "Electronics",
-    rating: 4.2,
-    reviews: 85,
-    inStock: true,
+    id: 2,
+    brand: "Samsung",
+    // Fix: Working Pexels Image (Samsung Phone)
     image:
-      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500&q=80",
-    features: ["Bluetooth 5.0", "15 Hours Battery", "Dual EQ Modes"],
+      "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
-    id: "p3",
-    name: "Sony WH-1000XM4",
-    brand: "Sony",
-    price: 109.99,
-    originalPrice: 199.99,
-    category: "Electronics",
-    rating: 4.7,
-    reviews: 340,
-    inStock: true,
+    id: 3,
+    brand: "Apple Laptops",
+    // Fix: Working Pexels Image (MacBook)
     image:
-      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500&q=80",
-    features: ["Industry Leading ANC", "30 Hours Battery", "Touch Controls"],
+      "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400",
   },
   {
-    id: "p4",
-    name: "JBL Tune 510BT",
-    brand: "JBL",
-    price: 49.99,
-    originalPrice: 69.99,
-    category: "Electronics",
-    rating: 4.3,
-    reviews: 210,
-    inStock: false, // Out of stock example
+    id: 4,
+    brand: "Dell",
+    // Fix: Working Pexels Image (Windows Laptop)
     image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
-    features: ["Pure Bass Sound", "40 Hours Battery", "Multi-point Connection"],
+      "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
   {
-    id: "p5",
-    name: "Smart Watch Pro",
-    brand: "TechFit",
-    price: 129.99,
-    originalPrice: 159.99,
-    category: "Electronics",
-    rating: 4.2,
-    reviews: 56,
-    inStock: true,
+    id: 5,
+    brand: "Smartwatches",
+    // Fix: Working Pexels Image (Smartwatch)
     image:
-      "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
-    features: ["Heart Rate Monitor", "Waterproof", "OLED Display"],
+      "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=400",
+  },
+  {
+    id: 6,
+    brand: "Sony Audio",
+    // Fix: Working Pexels Image (Headphones)
+    image:
+      "https://images.pexels.com/photos/3394662/pexels-photo-3394662.jpeg?auto=compress&cs=tinysrgb&w=400",
   },
 ];
+
+
+
+
+ export const trendingSection = [
+    {
+      id: 1,
+      name: "iPhone 15 Pro Max",
+      price: "₹1,39,900",
+      rating: "4.9",
+      image: "https://unsplash.com",
+    },
+    {
+      id: 2,
+      name: "MacBook Air M3",
+      price: "₹1,14,900",
+      rating: "4.8",
+      image: "https://unsplash.com",
+    },
+    {
+      id: 3,
+      name: "Samsung Galaxy S24 Ultra",
+      price: "₹1,24,999",
+      rating: "4.7",
+      image: "https://unsplash.com",
+    },
+    {
+      id: 4,
+      name: "Sony Bravia 4K TV",
+      price: "₹54,999",
+      rating: "4.6",
+      image: "https://unsplash.com",
+    },
+  ];
+
+// export const fetchProductsData = () => {
+//   return new Promise((resolve, reject) => {
+//     // setTimeout se hum 1.5 second ka delay (loading) daal rahe hain
+//     setTimeout(() => {
+//       resolve(ProductsData); // 1.5s baad Products array bhej dega
+//     }, 1000);
+//   });
+// };
+
+export const fetchProductsData = async () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(ProductsData);
+    }, 1000);
+  });
+};

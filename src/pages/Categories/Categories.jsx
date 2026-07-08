@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PromoCart from "../../components/home/PromoCart";
+import { fetchProductsData } from "../../data/product";
+import SkeletonCard from "../../components/Common/SkeletonCard/SkeletonCard";
 
 const Categories = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [ProductsData, setProducts] = useState([]);
   // src/data/products.js
 
   const bgColors = [
@@ -13,55 +17,38 @@ const Categories = () => {
     "bg-yellow-200",
   ];
 
-  const Products = [
-    {
-      id: 1,
-      brand: "Apple",
-      // Fix: Working Pexels Image (iPhone)
-      image:
-        "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      id: 2,
-      brand: "Samsung",
-      // Fix: Working Pexels Image (Samsung Phone)
-      image:
-        "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      id: 3,
-      brand: "Apple Laptops",
-      // Fix: Working Pexels Image (MacBook)
-      image:
-        "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      id: 4,
-      brand: "Dell",
-      // Fix: Working Pexels Image (Windows Laptop)
-      image:
-        "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      id: 5,
-      brand: "Smartwatches",
-      // Fix: Working Pexels Image (Smartwatch)
-      image:
-        "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-    {
-      id: 6,
-      brand: "Sony Audio",
-      // Fix: Working Pexels Image (Headphones)
-      image:
-        "https://images.pexels.com/photos/3394662/pexels-photo-3394662.jpeg?auto=compress&cs=tinysrgb&w=400",
-    },
-  ];
+  useEffect(() => {
+    setIsLoading(true);
+    fetchProductsData()
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="w-full mx-auto pb-24">
+        <div className="grid grid-cols-1 mt-20 mb-10 gap-4 px-2">
+          {/* Yahan hum 6 Dummy Skeleton Cards dikha rahe hain */}
+          {[1, 2, 3, 4, 5, 6].map((n) => (
+            <div className="flex justify-center w-full" key={n}>
+              <SkeletonCard />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="w-full  mx-0.2  ">
       <div className="grid   mt-15 mb-25 gap-2">
         <h3 className="mx-6 font-bold text-2xl">All Category</h3>
-        {Products.map((product) => (
+        {ProductsData.map((product) => (
           <div className="flex justify-center m-2" key={product.id}>
             <PromoCart
               brand={product.brand}

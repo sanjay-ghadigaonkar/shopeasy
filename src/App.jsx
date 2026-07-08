@@ -1,5 +1,7 @@
+import { useContext } from "react";
+import {CartContext} from "./Context/CartContext";
 import React from "react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link,useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { FiAlignLeft } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
@@ -13,12 +15,29 @@ import { CgProfile } from "react-icons/cg";
 import { TbBorderStyle } from "react-icons/tb";
 
 const App = () => {
+
+
+  // 👉 YAHAN TUMHE APNA NAYA FUNCTION (COMPONENT) LIKHNA HAI
+const AppContent = () => {
+  const location = useLocation();
+  const { alertMessage } = useContext(CartContext);
+  
+  console.log("Current Alert Message in App:", alertMessage);
   return (
-    <div className=" gap-10  max-w-full  min-h-screen  ">
-      <BrowserRouter>
+  <>
         {/*top  Logo  navbar and cart navbar */}
 
-        <div className="fixed top-0 left-0 right-0 z-50  flex justify-between items-center  border border-black  font-black text-2xl  p-2 px-1 bg-white">
+
+        {alertMessage && (
+          <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-950 text-white px-4 py-2.5 rounded-xl shadow-lg font-medium text-xs z-50 text-center whitespace-nowrap min-w-[200px]">
+            {alertMessage}
+          </div>
+        )}
+        
+
+        {location.pathname !== "/orders" && location.pathname !== "/profile" && location.pathname !== "/cart" && (
+        
+        <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center shadow-md font-black text-2xl p-2 px-1 bg-white">
           <Link to="/">
             <FiAlignLeft />
           </Link>
@@ -27,9 +46,11 @@ const App = () => {
             <FaShoppingCart />
           </Link>
         </div>
-
+        
+      )}
+       
         {/* bottom navbar spa for single page aplication */}
-        <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between  shad gap-5  p-2 items-center  bg-white">
+        <div className="fixed bottom-0 left-0 right-0 z-50  flex justify-between  shad gap-5  p-2 items-center  bg-white shadow-md">
           <Link to="/" className="flex flex-col items-center">
             <IoHomeOutline size={30} />
             <span className="text-xs font-medium">Home</span>
@@ -61,6 +82,14 @@ const App = () => {
             <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </div>
+  </>
+  )
+};
+
+  return (
+    <div className=" gap-10  max-w-full  min-h-screen  ">
+      <BrowserRouter>
+      <AppContent/>
       </BrowserRouter>
     </div>
   );
