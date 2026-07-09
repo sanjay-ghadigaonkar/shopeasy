@@ -20,7 +20,8 @@ UI set hone ke baad, aaj maine app me real logic aur data sharing lagayi:
   * Vite ke import path errors (`../../` aur `./`) ko khud thik karna seekha.
   * React hooks ke rules seekhe ki `useContext` ko hamesha Provider ke andar (child component me) hi call karna chahiye, isiliye code ko `AppContent` me shift kiya.
 * **User Feedback Popup:** Ek live alert notification banaya jo item add hote hi screen par aata hai aur `setTimeout` se 3 second baad apne aap gayab ho jata hai.
-
+ ## day 6 
+ style: optimized responsive utilities... and code ko clean kiya 
 ---
 
 ## 🚀 Aage Kya Karna Hai? (Next Steps)
