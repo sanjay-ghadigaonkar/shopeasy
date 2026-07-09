@@ -46,7 +46,7 @@ const Categories = () => {
   }
   return (
     <div className="w-full  mx-0.2  ">
-      <div className="grid   mt-15 mb-25 gap-2">
+      <div className="grid   mt-15 md:mt-20 mb-25 gap-2">
         <h3 className="mx-6 font-bold text-2xl">All Category</h3>
         {ProductsData.map((product) => (
           <div className="flex justify-center m-2" key={product.id}>

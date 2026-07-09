@@ -1,29 +1,30 @@
 import React from "react";
 
-// 1. Props hata diye kyunki Dummy Card ko data nahi chahiye
-const SkeletonCard = () => {
+const PromoCartSkeleton = () => {
   return (
-    // 2. Yahan 'BackGroundColor' hata kar 'bg-slate-200' aur 'animate-pulse' lagaya
-    <div className="relative w-full h-[120px] rounded-2xl bg-slate-200 shadow-md flex items-center justify-between p-3 overflow-hidden mx-5 animate-pulse">
-      <div className="z-10 flex flex-col justify-between h-full py-0.5">
-        <div>
-          {/* 3. Text ({brand}) hatakar uski jagah ek gray line bana di */}
-          <div className="h-5 bg-slate-300 rounded w-24 mb-1"></div>
-
-          {/* 4. Subtitle ki jagah ek patli gray line */}
-          <div className="h-3 bg-slate-300 rounded w-32 mt-1.5"></div>
+    // 'animate-pulse' se hi aate-jaate waqt ka smooth fading animation banta hai
+    <div className="relative w-full h-30 md:h-60 rounded-2xl bg-slate-200 shadow-md flex items-center justify-between p-3 overflow-hidden mx-5 animate-pulse">
+      
+      {/* Left Content Side Block */}
+      <div className="z-10 flex flex-col justify-between h-full py-0.5 w-[50%]">
+        <div className="space-y-2">
+          {/* Brand Heading Ke Liye Skeleton Line */}
+          <div className="h-4 bg-slate-300 rounded-md w-3/4 md:h-8"></div>
+          {/* Subtitle Text Ke Liye Skeleton Line */}
+          <div className="h-2.5 bg-slate-300 rounded-md w-full md:h-6"></div>
         </div>
 
-        {/* 5. Asli Button hatakar, ek button ke shape ka gray dabba bana diya */}
-        <div className="h-7 w-20 bg-slate-300 rounded-md mt-2"></div>
+        {/* Button Ke Liye Skeleton Block */}
+        <div className="h-6 bg-slate-300 rounded-md w-24 md:h-12 md:w-40"></div>
       </div>
 
+      {/* Right Side Image Block */}
       <div className="absolute right-0 top-0 bottom-0 w-[40%] flex items-center justify-end pr-3">
-        {/* 6. Asli <img> hatakar, ek gol gray dabba bana diya */}
-        <div className="h-24 w-24 bg-slate-300 rounded-full border-2 border-slate-200"></div>
+        {/* Asli Rounded Image Ki Tarah Gol Structure */}
+        <div className="h-24 w-24 md:h-44 md:w-44 bg-slate-300 rounded-full border-2 border-white/20"></div>
       </div>
     </div>
   );
 };
 
-export default SkeletonCard;
+export default PromoCartSkeleton;

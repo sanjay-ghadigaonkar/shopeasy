@@ -43,13 +43,13 @@ const App = () => {
           location.pathname !== "/cart" && (
             <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center shadow-md font-black text-2xl p-2 px-1 bg-white">
               <Link to="/">
-                <FiAlignLeft />
+                <FiAlignLeft  className="md:text-5xl"/>
               </Link>
-              <Link to="/">ShopEasy</Link>
-              <Link to="/cart" className="relative p-1">
+              <Link to="/"  className="md:text-5xl">ShopEasy</Link>
+              <Link to="/cart" className="relative p-1 md:text-5xl">
                 <FaShoppingCart />
                 {cartItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold h-4 w-4 md:h-8 md:w-8 rounded-full flex items-center justify-center">
                     {cartItems.reduce(
                       (total, item) => total + item.quantity,
                       0,
@@ -98,7 +98,7 @@ const App = () => {
   };
 
   return (
-    <div className=" gap-10  max-w-full  min-h-screen  ">
+    <div className=" ">
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>

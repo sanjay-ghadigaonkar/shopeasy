@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 
 const Profile = () => {
-  // Menu items ka data array (List render karne ke liye)
+  // Static configuration data for profile list items
   const menuItems = [
     { id: 1, title: "My Orders", icon: <FiBox />, link: "/orders" },
     { id: 2, title: "My Addresses", icon: <FiMapPin />, link: "#" },
@@ -18,31 +18,26 @@ const Profile = () => {
   ];
 
   return (
-    // Main Container: pb-24 zaroori hai taaki bottom navbar menu ko na chhipaye
-    <div className="min-h-screen bg-slate-50 pb-24 font-sans w-full" >
+    // Main structural wrapper with layout safe zone for fixed navigation menus
+    <div className="min-h-screen bg-slate-50 pb-24 font-sans w-full">
       
-      {/* 1. Clean Header */}
+      {/* Section 1: Sticky header bar */}
       <header className="flex items-center justify-center px-4 py-4 bg-white shadow-sm sticky top-0 z-20">
         <h1 className="text-lg font-bold text-slate-900 tracking-tight">Profile</h1>
       </header>
 
-      {/* 2. User Info Section */}
+      {/* Section 2: User profile metadata display */}
       <div className="flex flex-col items-center mt-8 mb-8 px-4">
-        {/* Avatar Placeholder */}
         <div className="h-24 w-24 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border-4 border-white mb-3 relative">
           <span className="text-4xl font-black">S</span>
         </div>
-        
-        {/* Name & Subtext */}
         <h2 className="text-xl font-bold text-slate-900">Sanjay</h2>
         <p className="text-sm text-slate-500 font-medium mt-0.5">sanjay@example.com</p>
         <p className="text-xs text-slate-400 mt-1">+91 XXXXXXXXXX</p>
       </div>
 
-      {/* 3. Menu List Options */}
+      {/* Section 3: Navigation settings menu card */}
       <div className="px-4 space-y-4">
-        
-        {/* Main Menu Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
           {menuItems.map((item, index) => (
             <div
@@ -60,7 +55,7 @@ const Profile = () => {
           ))}
         </div>
 
-        {/* 4. Logout Button (Alag Card me highlight karne ke liye) */}
+        {/* Section 4: Isolated session termination container */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
           <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-red-50 transition-colors group">
             <div className="flex items-center gap-3 text-red-600">
