@@ -4,6 +4,7 @@ import { CartContext } from "../../Context/CartContext";
 import React from "react";
 import { FiShoppingCart, FiHeart, FiStar } from "react-icons/fi";
 import { trendingSection } from "../../data/product";
+import {Link} from "react-router-dom";
 
 const TrendingProducts = () => {
   const { addToCart } = useContext(CartContext);
@@ -26,7 +27,7 @@ const TrendingProducts = () => {
       {/* Section 2: Carousel row container swapping into flex grids dynamically */}
       <div className="flex {{h-auto}} md:h-auto overflow-x-auto gap-3 pb-6 scrollbar-none w-full snap-x snap-mandatory md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-4 md:overflow-visible border border-slate-200 rounded-xl p-3 bg-slate-50/50 shadow-xs">
         {trendingSection.map((product) => (
-          <div
+          <Link to={`/product/${product.id}`}
             key={product.id}
             className="snap-center shrink-0 w-[140px] md:w-full bg-white border border-slate-100 rounded-xl overflow-hidden shadow-xs hover:shadow-md flex flex-col justify-between h-[195px] sm:h-[210px] md:h-[280px] lg:h-[300px] group transition-all duration-300"
           >
@@ -70,7 +71,7 @@ const TrendingProducts = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

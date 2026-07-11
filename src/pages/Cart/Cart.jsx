@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext"; // Path ek baar check kar lein
 
 const Cart = () => {
-  // ✅ Pehle chal raha useState yahan se poori tarah hata diya hai
+   
   const { cartItems, setCartItems } = useContext(CartContext);
 
   const increaseQuantity = (id) => {

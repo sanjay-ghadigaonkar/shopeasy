@@ -24,6 +24,4 @@ UI set hone ke baad, aaj maine app me real logic aur data sharing lagayi:
  style: optimized responsive utilities... and code ko clean kiya 
 ---
 
-## 🚀 Aage Kya Karna Hai? (Next Steps)
-- [ ] Navbar ke Cart Icon ke upar total items ka dynamic count badge lagana.
-- [ ] Category page ke clicks par products ko dynamic filter karna.
+

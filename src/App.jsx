@@ -19,9 +19,11 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { TbBorderStyle } from "react-icons/tb";
+import ProductDetail from "./components/Common/ProductDetail";
+  
 
 const App = () => {
-  // 👉 YAHAN TUMHE APNA NAYA FUNCTION (COMPONENT) LIKHNA HAI
+  // YAHAN APNA NAYA FUNCTION (COMPONENT) LIKHNA HAI
   const AppContent = () => {
     const location = useLocation();
     const { alertMessage } = useContext(CartContext);
@@ -40,7 +42,8 @@ const App = () => {
 
         {location.pathname !== "/orders" &&
           location.pathname !== "/profile" &&
-          location.pathname !== "/cart" && (
+          location.pathname !== "/cart" && 
+          !location.pathname.startsWith("/product") &&(
             <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center shadow-md font-black text-2xl p-2 px-1 bg-white">
               <Link to="/">
                 <FiAlignLeft  className="md:text-5xl"/>
@@ -91,6 +94,7 @@ const App = () => {
             <Route path="/orders" element={<Orders />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/product/:id" element={<ProductDetail />}></Route>
           </Routes>
         </div>
       </>
