@@ -28,7 +28,7 @@ export default function ProductDetail() {
   }
   console.log(handleIncrement)
   return (
-    <div className=" w-full max-h-screen bg-slate-50 text-slate-800 pb-28 antialiased selection:bg-blue-100">
+    <div className=" w-full min-h-screen bg-slate-50 text-slate-800 pb-25 antialiased selection:bg-blue-100">
       {/* 1. TOP STICKY HEADER & COMPONENT NAVIGATION */}
       <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 px-4 py-3.5 backdrop-blur-md">
         <div className="mx-auto flex max-w-md items-center justify-between">

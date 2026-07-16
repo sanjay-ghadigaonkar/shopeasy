@@ -61,7 +61,8 @@ const TrendingProducts = () => {
                   ₹{product.price.toLocaleString("en-IN")}
                 </span>
                 <button
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     addToCart(product);
                   }}
                   className="bg-blue-600 hover:bg-blue-700 text-white p-1 md:p-2 rounded-md lg:rounded-lg transition active:scale-95 shadow-xs shrink-0 cursor-pointer"

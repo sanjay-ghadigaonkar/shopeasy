@@ -60,7 +60,7 @@ const Cart = () => {
       <div className="p-4 space-y-6">
         {/* CART ITEMS LIST */}
         <div className="space-y-4">
-          {/* ✅ Yahan cartItem.map ko cartItems.map kiya hai */}
+          {/*  Yahan cartItem.map ko cartItems.map kiya hai */}
           {cartItems.map((item) => (
             <div
               key={item.id}
